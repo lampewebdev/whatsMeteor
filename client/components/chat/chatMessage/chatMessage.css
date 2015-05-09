@@ -1,0 +1,9 @@
+.chatMessage{
+  width:100%;
+}
+.sender{
+  background-color:green;
+}
+.notSender{
+  background-color: red;
+}

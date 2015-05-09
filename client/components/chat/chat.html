@@ -1,0 +1,18 @@
+<template name="chat">
+  <div class="row">
+    <div class="col s12">
+      <h2 class="center-align">Chat</h2>
+    </div>
+    {{#if Template.subscriptionsReady}}
+      {{#if doneLoading}}  
+        {{#each message}}
+          {{> chatMessage}}
+        {{/each}}
+      {{else}}
+        Chat is Loading
+      {{/if}}
+    {{else}}
+      Subscribing to chat
+    {{/if}}
+  </div>
+</template>

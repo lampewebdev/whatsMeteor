@@ -1,0 +1,27 @@
+<template name="navBar">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">whatsMeteor</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Messages</a></li>
+        <li><a href="/profile">Profile/Settings</a></li>
+        {{#if isLoggedIn}}
+          <li><a href="#" class="logout">Logout</a></li>
+        {{else}}
+          <li><a href="#" class="accountsOpenModal">Login/register</a></li>
+        {{/if}}
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/">Messages</a></li>
+        <li><a href="/profile">Profile/Settings</a></li>
+        {{#if isLoggedIn}}
+          <li><a href="#" class="logout">Logout</a></li>
+        {{else}}
+          <li><a href="#" class="accountsOpenModal">Login/register</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  {{> accounts}}
+</template>

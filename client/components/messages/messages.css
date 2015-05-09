@@ -1,0 +1,12 @@
+.messages{
+  height:100%;
+}
+.messages .notLoggedInMessage{
+  height:100%;
+}
+
+.messages .addFriend{
+  position: absolute;
+  bottom: 8%;
+  right: 5%
+}

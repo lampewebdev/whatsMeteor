@@ -1,0 +1,10 @@
+<template name="messagesFriend">
+  <li class="collection-item avatar">
+    {{#if Template.subscriptionsReady}}
+      <i class="mdi-av-play-arrow circle red"></i>
+      <span class="email">{{userInfos}}</span>
+    {{else}}
+      Loading infos!
+    {{/if}}
+  </li>
+</template>

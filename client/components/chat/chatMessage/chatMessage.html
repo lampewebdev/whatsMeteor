@@ -1,0 +1,10 @@
+<template name="chatMessage">
+  <div class="row {{#if isSender}} sender left {{else}} notSender right {{/if}} chatMessage">
+    <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align {{else}} right-align {{/if}}">
+      {{email}}
+    </div>
+    <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align {{else}} right-align {{/if}}">
+      {{message}}
+    </div>
+  </div>
+</template>

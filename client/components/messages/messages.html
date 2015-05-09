@@ -1,0 +1,22 @@
+<template name="messages">
+  <div class="messages">
+    {{#if isLoggedIn}}
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a href="#chats">Chats</a></li>
+          <li class="tab col s3"><a class="active" href="#friends">Friends</a></li>
+        </ul>
+      </div>
+      {{> MessagesChats}}
+      {{> messagesFriends}}
+    </div>
+    <a class="btn-floating btn-large waves-effect waves-light green addFriend"><i class="mdi-content-add"></i></a>
+    {{> addFriendModal}}
+    {{else}}
+      <div class="valign-wrapper notLoggedInMessage">
+        <h5 class="valign center-align">You have to be Logged In to write Messages</h5>
+      </div>
+    {{/if}}
+  </div>
+</template>

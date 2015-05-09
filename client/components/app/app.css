@@ -1,0 +1,8 @@
+html,body{
+  height:100%;
+}
+.app{
+  height: -moz-calc(100% - 56px);
+  height: -webkit-calc(100% - 56px);
+  height: calc(100% - 56px);
+}

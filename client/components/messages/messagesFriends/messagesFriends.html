@@ -1,0 +1,13 @@
+<template name="messagesFriends">
+  <div id="friends" class="col s12">
+    {{#if Template.subscriptionsReady}}
+    <ul class="collection">
+      {{#each friends}}
+        {{> messagesFriend}}
+      {{/each}}
+    </ul>
+    {{else}}
+      <h1>Loading Friends !</h1>
+    {{/if}}
+  </div>
+</template>
