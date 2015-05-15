@@ -6,5 +6,9 @@
     <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align {{else}} right-align {{/if}}">
       {{message}}
     </div>
+    <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align isSender {{else}} right-align notSender {{/if}}">
+       <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}}"></i>
+       <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}} secondCheck"></i>
+    </div>
   </div>
 </template>

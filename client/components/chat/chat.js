@@ -2,20 +2,36 @@ Router.route("/chat/", function() {
   this.render("chat");
 });
 
+Session.set("chatId", undefined);
+var doneLoading = new ReactiveVar(false);
 Template.chat.onCreated(function() {
-  Session.set("chatPartner", "BB3wCYmpwDxujoeHs")
   this.subscribe("chat", Session.get("chatPartner"));
-  Chat.findOne({
-    participant: {
-      $all: [Meteor.userId(), Session.get("chatPartner")]
+  if (Session.get("chatPartner") === undefined) {
+    Router.go("/");
+    return false;
+  }
+  this.autorun(function() {
+    if (Template.instance().subscriptionsReady()) {
+      var chat = Chat.findOne({
+        participants: Session.get("chatPartner")
+      });
+      if (chat === undefined) {
+        Chat.insert({
+          participants: Session.get("chatPartner"),
+          messages: []
+        });
+      } else {
+        Session.set("chatId", chat._id);
+        doneLoading.set(true);
+      }
     }
   });
 });
 Template.chat.helpers({
   "message": function() {
-    if (Session.get("ChatId")) {
+    if (Session.get("chatId")) {
       var chat = Chat.findOne({
-        _id: Session.get("ChatId")
+        _id: Session.get("chatId")
       });
       if (chat) {
         return chat.messages;
@@ -23,23 +39,32 @@ Template.chat.helpers({
     }
   },
   "doneLoading": function() {
-    var _id = Session.get("chatPartner");
-    var chat = Chat.findOne({
-      participant: {
-        $all: [Meteor.userId(), _id]
-      }
-    });
-    if (chat !== undefined) {
-      Session.set("ChatId", chat._id);
-      return true;
-    } else {
-      Chat.insert({
-        participant: [Meteor.userId(), _id],
-        messages: []
-      }, function(error, _id) {
-        Session.set("ChatId", _id);
-        return true;
-      });
+    return doneLoading.get();
+  }
+});
+Template.chat.events({
+  "click button": function(e, t) {
+    Template.chat.utils.sendMessage(e, t);
+  },
+  "keyup #sendMessage": function(e, t) {
+    if (e.keyCode === 13) {
+      Template.chat.utils.sendMessage(e, t);
     }
   }
 });
+Template.chat.utils = {
+  "sendMessage": function() {
+    if ($("#sendMessage").val().length <= 0) {
+      return false;
+    }
+    var message = {};
+    message.chatId = Session.get("chatId");
+    message.text = $("#sendMessage").val();
+    Meteor.call("sendMessage", message, function(error, result) {
+      if (error) {}
+      if (result) {
+        $("#sendMessage").val("");
+      }
+    });
+  }
+};

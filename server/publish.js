@@ -16,10 +16,15 @@ Meteor.publish("userInfo", function(userId) {
     }
   });
 });
-Meteor.publish("chat", function(participant) {
+Meteor.publish("chatsList", function() {
   return Chat.find({
-    participant: {
-      $all: [this.userId, participant]
+    participants: {
+      $all: [this.userId]
     }
+  });
+});
+Meteor.publish("chat", function(participants) {
+  return Chat.find({
+    "participants": {$all: participants, $size: 2}
   });
 });

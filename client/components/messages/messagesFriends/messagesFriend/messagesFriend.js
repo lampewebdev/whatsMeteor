@@ -17,7 +17,7 @@ Template.messagesFriend.helpers({
 Template.messagesFriend.events({
   "click":function(e,t){
     e.preventDefault();
-    Session.set("chatPartner", this.valueOf());
+    Session.set("chatPartner", [Meteor.userId(), this.valueOf()]);
     Router.go("/chat/");
   }
 });

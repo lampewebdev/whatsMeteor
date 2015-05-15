@@ -2,8 +2,19 @@
   width:100%;
 }
 .sender{
-  background-color:green;
+  background-color:#e8f5e9;
+  margin-bottom:0;
 }
 .notSender{
-  background-color: red;
+  background-color: #f9fbe7;
+  margin-bottom:0;
+}
+
+.isSender i:nth-child(2){
+  transform: translateX(-13px);
+  display: inline-block;
+}
+.notSender i:nth-child(1){
+  transform: translateX(13px);
+  display: inline-block;
 }

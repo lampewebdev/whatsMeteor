@@ -1,7 +1,7 @@
 <template name="messagesFriends">
-  <div id="friends" class="col s12">
+  <div id="messagesFriends" class="col s12">
     {{#if Template.subscriptionsReady}}
-    <ul class="collection">
+    <ul class="collection friends">
       {{#each friends}}
         {{> messagesFriend}}
       {{/each}}

@@ -1,10 +1,18 @@
 <template name="messagesChat">
+  <li class="collection-item avatar">
+    {{#if Template.subscriptionsReady}}
+      <i class="mdi-communication-message circle {{randomColor}}"></i>
+      <h5 class="title email">
+        {{#each participants}}
+          {{> messagesChatParticipant}}
+        {{/each}}
+      </h5>
+    {{else}}
+      Loading infos!
+    {{/if}}
+  </li>
+</template>
 
-<li class="collection-item avatar">
-  {{!-- {{#if Template.subscriptionsReady}} --}}
-    <i class="mdi-av-play-arrow circle red"></i>
-    <span class="email">{{this}}</span>
-  {{!-- {{else}} --}}
-    Loading infos!
-  {{!-- {{/if}} --}}
-</li></template>
+<template name="messagesChatParticipant">
+  {{email}}
+</template>
