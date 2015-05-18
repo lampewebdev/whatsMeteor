@@ -1,0 +1,13 @@
+.navbar-fixed,
+.navbar-fixed ul,
+.navbar-fixed li,
+.navbar-fixed a{
+  background-color: #EE6E73;
+  color: white;
+  transition: background-color 0.3s ease 0s;
+}
+.navbar-fixed a:hover,
+.navbar-fixed li:hover{
+  background-color: white;
+  color: #EE6E73;
+}

@@ -1,14 +1,49 @@
 <template name="chatMessage">
-  <div class="row {{#if isSender}} sender left {{else}} notSender right {{/if}} chatMessage">
-    <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align {{else}} right-align {{/if}}">
-      {{email}}
+  <div class="row {{#if isSender}} sender {{else}} notSender {{/if}} chatMessage">
+    <div class="col s12 m10 l8 offset-m1 offset-l2">
+      <div class="row noMarginBottom">
+        <div class="col s3 m2 l1 messageIcon">
+          <div class="btn waves-effect waves-light"><i class="mdi-action-account-circle"></i></div>
+        </div>
+        <div class="col s9 m10 l11 messageBody z-depth-1">
+          <div class="row noMarginBottom">
+            <div class="col {{#if isSender}} {{else}} {{/if}} email">
+              {{email}}
+            </div>
+            <div class="col {{#if isSender}} {{else}}  {{/if}} message">
+              {{message}}
+            </div>
+            <br>
+            <div class="col {{#if isSender}} {{else}} {{/if}} readby">
+              <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}}"></i>
+              <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}} "></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align {{else}} right-align {{/if}}">
-      {{message}}
-    </div>
-    <div class="col s12 m8 l6 offset-m2 offset-l3 {{#if isSender}} left-align isSender {{else}} right-align notSender {{/if}}">
-       <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}}"></i>
-       <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}} secondCheck"></i>
+  </div>
+</template>
+
+<template name="chatMessage2">
+  <div class="row {{#if isSender}} sender {{else}} notSender {{/if}} chatMessage">
+    <div class="col s12 m8 l6 offset-m2 offset-l3">
+      <div class="row relative">
+        <div class="btn-floating btn-large waves-effect waves-light {{randomColor}} chatIcon"><i class="mdi-content-add"></i></div>
+        <span class="z-depth-1">
+          <div class="col {{#if isSender}} left-align {{else}} right-align {{/if}} email ">
+            {{email}}
+          </div>
+          <div class="col {{#if isSender}} left-align {{else}} right-align {{/if}} message">
+            {{message}}
+          </div>
+          <br>
+          <div class="col {{#if isSender}} left-align isSender {{else}} right-align notSender {{/if}} readby">
+            <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}}"></i>
+            <i class="mdi-navigation-check {{#if readByAll}} green-text {{/if}} secondCheck"></i>
+          </div>
+        </span>
+      </div>
     </div>
   </div>
 </template>

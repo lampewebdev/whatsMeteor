@@ -1,20 +1,83 @@
-.chatMessage{
-  width:100%;
+.chatMessage .btn, .chatMessage .btn-large, .chatMessage .btn-flat {
+  padding: 1rem 2rem;
+  font-size: 2rem;
 }
-.sender{
-  background-color:#e8f5e9;
-  margin-bottom:0;
+.chatMessage .messageIcon .btn {
+  box-sizing: content-box;
 }
-.notSender{
-  background-color: #f9fbe7;
-  margin-bottom:0;
+.chatMessage .noMarginBottom {
+  margin-bottom: 0;
 }
-
-.isSender i:nth-child(2){
+.messageBody {
+  background-color: #DFF3D8;
+}
+.chatMessage .messageBody .message {
+  word-break: break-all;
+}
+.sender .messageBody {
+  position: relative;
+  background-color: #DFF3D8;
+  display: inline-block;
+  float: left;
+  max-width: 85%;
+  margin-left: 12%;
+}
+.sender .messageBody:after, .sender .messageBody:before {
+  right: 100%;
+  top: 20%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.sender .messageBody:after {
+  border-right-color: #DFF3D8;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.sender .messageBody:before {
+  border-right-color: #DFF3D8;
+  border-width: 11px;
+  margin-top: -11px;
+}
+.sender .readby i:nth-child(2) {
   transform: translateX(-13px);
   display: inline-block;
 }
-.notSender i:nth-child(1){
+.notSender .messageIcon {
+  float: right;
+  text-align: right;
+}
+.messageBody .email, .messageBody .message, .messageBody .readby {
+  width: 100%;
+  text-align: right;
+}
+.notSender .messageBody {
+  position: relative;
+}
+.notSender .messageBody:after, .notSender .messageBody:before {
+  left: 100%;
+  top: 20%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.notSender .messageBody:after {
+  border-left-color: #DFF3D8;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.notSender .messageBody:before {
+  border-left-color: #DFF3D8;
+  border-width: 11px;
+  margin-top: -11px;
+}
+.notSender .readby i:nth-child(1) {
   transform: translateX(13px);
   display: inline-block;
 }

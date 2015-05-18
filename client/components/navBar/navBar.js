@@ -2,6 +2,12 @@ Template.navBar.onRendered(function() {
   $(".button-collapse").sideNav();
 });
 
+Template.navBar.helpers({
+  isOnChatPage: function() {
+    return Session.get("ChatIsOnChatPage");
+  }
+});
+
 Template.navBar.events({
   "click a": function() {
     $('.button-collapse').sideNav('hide');
@@ -17,5 +23,8 @@ Template.navBar.events({
         Materialize.toast("you are now Logged Out!", 3000, "green");
       }
     });
+  },
+  "click .addFriendToChat": function() {
+    $('#addFriendToChatModal').openModal();
   }
 });

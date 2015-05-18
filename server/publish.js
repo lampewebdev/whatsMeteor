@@ -1,3 +1,10 @@
+Push.allow({
+  send: function(userId, notification) {
+    // Allow all users to send to everybody - For test only!
+    return true;
+  }
+});
+
 Meteor.publish("friendsList", function() {
   return Meteor.users.find({
     _id: this.userId
@@ -24,7 +31,11 @@ Meteor.publish("chatsList", function() {
   });
 });
 Meteor.publish("chat", function(participants) {
+  console.log(participants);
   return Chat.find({
-    "participants": {$all: participants, $size: 2}
+    "participants": {
+      $all: participants,
+      $size: participants.length
+    }
   });
 });

@@ -1,0 +1,62 @@
+.sendMessageButtonWrapper {
+  padding: 0 !important;
+  margin: 0;
+  width: 68px;
+  height: 72px;
+}
+.sendMessageButtonWrapper .btn {
+  height: 65px;
+  width: 65px;
+  margin: 3px;
+  /*padding: 0;*/
+}
+.sendMessageButtonWrapper .btn {
+/*
+  margin: 0;
+  width: 100%;
+  text-align: center;*/
+}
+.sendMessageInputWrapper {
+  padding: 0 !important;
+  margin: 0;
+  width: calc(100% - 68px);
+  height: 72px;
+}
+.sendMessageInputWrapper input {
+  height: 65px;
+  padding: 0 !important;
+  margin: 0;
+  /*background-color: orange;*/
+  border:0;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    black;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-height: 70px;
+  max-height: 70px;
+  width: 100%;
+  background-color: white;
+  z-index: 998;
+}
+footer .row {
+  margin-bottom: 0;
+}

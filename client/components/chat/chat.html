@@ -1,5 +1,5 @@
 <template name="chat">
-  <div class="row">
+  <div class="row chat">
     <div class="col s12">
       <h2 class="center-align">Chat</h2>
     </div>
@@ -8,26 +8,27 @@
         {{#each message}}
           {{> chatMessage}}
         {{/each}}
-        <div class="row">
-          <div class="col s12 m8 l6 offset-m2 offset-l3">
-            <div class="row">
-              <div class="input-field col s12 m9 l9">
-                <input value="" id="sendMessage" type="text" class="validate">
-                <label class="active" for="sendMessage">message</label>
-              </div>
-              <div class="col s12 m3 l3">
-                <button class="waves-effect waves-light btn-large" type="submit" name="action">Send
-                  <i class="mdi-content-send right"></i>
-                </button>
+        <footer class="chatFooter">
+          <div class="row">
+            <div class="col s12 m8 l6 offset-m2 offset-l3">
+              <div class="row">
+                <div class="input-field col sendMessageInputWrapper">
+                  <input placeholder="Enter a Message" id="sendMessageInput" type="text" class="validate">
+                </div>
+                <div class="col sendMessageButtonWrapper">
+                  <button class="btn-floating waves-effect waves-light btn sendMessageButton" type="submit" name="action">
+                    <i class="mdi-content-send"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </footer>
       {{else}}
-        Chat is Loading
+        <h3 class="center-align"> Chat is Loading </h3>
       {{/if}}
     {{else}}
-      Subscribing to chat
+      <h3 class="center-align"> Subscribing to chat </h3>
     {{/if}}
   </div>
 </template>

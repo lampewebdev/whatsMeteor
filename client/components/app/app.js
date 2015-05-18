@@ -1,14 +1,17 @@
+App = {};
+App.utils = {
+  "randomColor": function() {
+    var colors = ["red", "blue", "deep-purple", "lime", "orange", "deep-orange"];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+};
+
 Template.registerHelper("isLoggedIn", function() {
   if (Meteor.userId()) {
     return true;
   } else {
     return false;
   }
-});
-
-Template.registerHelper("randomColor", function() {
-  var colors = ["red", "blue", "deep-purple", "lime", "orange", "deep-orange"];
-  return colors[Math.floor(Math.random() * colors.length)];
 });
 
 Array.prototype.equalsFreeOrder = function(array) {

@@ -6,6 +6,13 @@ Template.chatMessage.onCreated(function() {
 });
 
 Template.chatMessage.onRendered(function() {
+  var chat = Chat.findOne({
+    _id: Session.get("chatId")
+  });
+  if (chat.messages.length - 1 === this.data.index) {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+  this.$(".messageIcon .btn").addClass(App.utils.randomColor());
   if (this.data.readBy) {
     if (this.data.readBy.indexOf(Meteor.userId()) >= 0) {
       return false;
@@ -13,7 +20,6 @@ Template.chatMessage.onRendered(function() {
   }
   Meteor.call("setChatMessageAsRead", Session.get("chatId"), this.data);
 });
-
 Template.chatMessage.helpers({
   email: function() {
     if (Template.instance().subscriptionsReady()) {
@@ -39,6 +45,9 @@ Template.chatMessage.helpers({
     var chat = Chat.findOne({
       _id: Session.get("chatId")
     });
-    return chat.participants.equalsFreeOrder(this.readBy);
+    if (chat) {
+      return chat.participants.equalsFreeOrder(this.readBy);
+    }
+    return false;
   }
 });
